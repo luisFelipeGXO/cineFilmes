@@ -20,4 +20,9 @@ public class Cine {
     private String imagem;
     private Long classificacao;
 
+    public Cine(CineRequestDTO data) {
+        this.imagem = data.imagem();
+        this.titulo = data.titulo();
+        this.classificacao = data.classificacao();
+    }
 }
