@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(of = "id")
 public class Cine {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,9 +20,5 @@ public class Cine {
     private String imagem;
     private Long classificacao;
 
-    public Cine(CineRequestDTO data) {
-        this.imagem = data.imagem();
-        this.titulo = data.titulo();
-        this.classificacao = data.classificacao();
-    }
+
 }

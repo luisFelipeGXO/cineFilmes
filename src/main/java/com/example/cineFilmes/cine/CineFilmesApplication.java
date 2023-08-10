@@ -1,4 +1,4 @@
-package com.example.cineFilmes;
+package com.example.cineFilmes.cine;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
