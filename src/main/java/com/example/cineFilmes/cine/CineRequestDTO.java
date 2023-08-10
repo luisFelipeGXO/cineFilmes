@@ -1,4 +1,4 @@
 package com.example.cineFilmes.cine;
 
-public class CineRequestDTO {
+public record CineRequestDTO(String titulo, String imagem, Long classificacao) {
 }
