@@ -1,12 +1,11 @@
 package com.example.cineFilmes.controller;
 
 import com.example.cineFilmes.cine.CineRepository;
+import com.example.cineFilmes.cine.Cine;
 import com.example.cineFilmes.cine.CineRequestDTO;
+import com.example.cineFilmes.cine.CineResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("cine")
@@ -16,6 +15,7 @@ public class CineController {
     private CineRepository repository;
 
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public void saveCine(@RequestBody CineRequestDTO data) {
         Cine cineData = new Cine(data);
@@ -23,7 +23,9 @@ public class CineController {
         return;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public List<CineResponseDTO> getAll() {
-
+        List<CineResponseDTO> cineList = repository.findAll().stream().map(CineResponseDTO::new).toList();
+        return cineList;
     }
 }
